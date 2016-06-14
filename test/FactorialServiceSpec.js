@@ -15,10 +15,18 @@ describe('FactorialService.js', function() {
     
     it('should null if an invalid param was given', function() {
         expect(FactorialService.calculate(-1)).toBe(null);
-        expect(FactorialService.calculate("1")).toBe(null);
         expect(FactorialService.calculate("")).toBe(null);
         expect(FactorialService.calculate()).toBe(null);
     });
-        
+    
+    it('should return null for given params containing caracteres', function() {
+        expect(FactorialService.calculate('5xx')).toBe(null);
+        expect(FactorialService.calculate('x5x')).toBe(null);
+        expect(FactorialService.calculate('xx5')).toBe(null);
+    });
+    
+    it('should return null  if the given number is float', function() {
+        expect(FactorialService.calculate(5.5)).toBe(null);
+    });        
 });
     

@@ -1,11 +1,11 @@
 var FactorialService = (function () {
 
     var _results = [1, 1];
-
+      
+    var _reg = new RegExp('^[0-9]+$');   
+     
     function _isNumberValid(number) {
-        return (number !== undefined)
-            && (number > -1)
-            && (typeof(number) !== 'string');
+        return (_reg.test(number));        
     }
     
     function calculate(number) {
